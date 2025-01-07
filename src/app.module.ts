@@ -12,6 +12,7 @@ import { AppService } from './app.service';
 import { ScraperService } from './scraper.service';
 import { InitiatorService } from './initiator.service';
 import { DatabaseService } from './database.service';
+import { NotificationGateway } from './notification-gateway';
 
 @Module({
   imports: [
@@ -23,6 +24,12 @@ import { DatabaseService } from './database.service';
     ScheduleModule.forRoot(),
   ],
   controllers: [AppController],
-  providers: [AppService, ScraperService, InitiatorService, DatabaseService],
+  providers: [
+    AppService,
+    ScraperService,
+    InitiatorService,
+    DatabaseService,
+    NotificationGateway,
+  ],
 })
 export class AppModule {}

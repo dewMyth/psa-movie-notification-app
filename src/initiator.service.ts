@@ -3,12 +3,14 @@ import { DatabaseService } from './database.service';
 import { ScraperService } from './scraper.service';
 import { Movie } from './schemas/movie-schema';
 import { Cron, CronExpression } from '@nestjs/schedule';
+import { NotificationGateway } from './notification-gateway';
 
 @Injectable()
 export class InitiatorService {
   constructor(
     private _dbService: DatabaseService,
     private _scraperService: ScraperService,
+    private _notificationGateway: NotificationGateway,
   ) {}
 
   @Cron(CronExpression.EVERY_2_HOURS)
@@ -48,6 +50,8 @@ export class InitiatorService {
     console.log(
       `New movies to send in the notification => ${JSON.stringify(newMovies)}`,
     );
+
+    this._notificationGateway.notifyJobCompletion(newMovies);
 
     return newMovies;
   }
