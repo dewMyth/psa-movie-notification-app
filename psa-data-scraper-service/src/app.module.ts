@@ -13,6 +13,7 @@ import { ScraperService } from './scraper.service';
 import { InitiatorService } from './initiator.service';
 import { DatabaseService } from './database.service';
 import { NotificationGateway } from './notification-gateway';
+import { EmailService } from './email.service';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { NotificationGateway } from './notification-gateway';
     ScraperService,
     InitiatorService,
     DatabaseService,
+    EmailService,
     NotificationGateway,
   ],
 })

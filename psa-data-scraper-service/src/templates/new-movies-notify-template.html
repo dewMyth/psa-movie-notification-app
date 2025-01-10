@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Movies Notification</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+      }
+      .email-container {
+        max-width: 600px;
+        margin: 20px auto;
+        background: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .header h1 {
+        font-size: 28px;
+        margin: 0;
+        color: #333;
+      }
+      .header p {
+        font-size: 16px;
+        color: #555;
+      }
+      .movie {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+      }
+      .movie:last-child {
+        border-bottom: none;
+      }
+      .movie img {
+        width: 50%;
+        max-width: 600px;
+        height: auto;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .movie-details {
+        text-align: center;
+      }
+      .movie-title {
+        font-size: 20px;
+        margin: 0 0 5px;
+        color: #007bff;
+        text-decoration: none;
+      }
+      .movie-title:hover {
+        text-decoration: underline;
+      }
+      .movie-category {
+        font-size: 14px;
+        color: #777;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #aaa;
+      }
+      .footer a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      .footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <div class="header">
+        <h1>New Movies Added!</h1>
+        <p>Discover the latest movies just added to our collection!</p>
+      </div>
+
+      <!-- Movies List -->
+      [MOVIES]
+      <div class="footer">
+        <p>
+          You're receiving this email because you subscribed to movie
+          notifications.
+        </p>
+        <p><a href="#">Unsubscribe</a> | <a href="#">Update Preferences</a></p>
+      </div>
+    </div>
+  </body>
+</html>

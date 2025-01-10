@@ -4,6 +4,7 @@ import { ScraperService } from './scraper.service';
 import { Movie } from './schemas/movie-schema';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { NotificationGateway } from './notification-gateway';
+import { EmailService } from './email.service';
 
 @Injectable()
 export class InitiatorService {
@@ -11,9 +12,10 @@ export class InitiatorService {
     private _dbService: DatabaseService,
     private _scraperService: ScraperService,
     private _notificationGateway: NotificationGateway,
+    private _emailService: EmailService,
   ) {}
 
-  @Cron(CronExpression.EVERY_2_HOURS)
+  @Cron(CronExpression.EVERY_10_SECONDS)
   async startAdding(): Promise<any> {
     // Save new movies
     let newMovies: Movie[] = [];
@@ -52,6 +54,11 @@ export class InitiatorService {
     );
 
     this._notificationGateway.notifyJobCompletion(newMovies);
+
+    if (newMovies.length) {
+      console.log(`Starting to send the newly added movies...`);
+      await this._emailService.sendEmail(newMovies);
+    }
 
     return newMovies;
   }
